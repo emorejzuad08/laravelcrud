@@ -17,6 +17,10 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::post('/add_product', [HomeController::class, 'add_product']);
+Route::get('/show_product', [HomeController::class, 'show_product']);
+Route::get('/delete_product/{id}', [HomeController::class, 'delete_product']);
+Route::get('/update_product/{id}', [HomeController::class, 'update_product']);
+Route::post('/edit_product/{id}', [HomeController::class, 'edit_product']);
 
 Route::get('/bank', [BankController::class, 'index']);
 Route::post('/add_bank', [BankController::class, 'add_bank']);
