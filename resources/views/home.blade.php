@@ -29,6 +29,16 @@
 
         <br>
         <h1>Add Product</h1>
+        @if($errors)
+
+        @foreach($errors->all() as $errors)
+        <li style="color:red">
+            {{$errors}}
+        </li>
+        @endforeach
+
+
+        @endif
         <form action="{{ url('/add_product') }}" method="Post" enctype="multipart/form-data">
 
             @csrf
