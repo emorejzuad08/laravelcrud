@@ -28,7 +28,7 @@
     <main class="container mt-5">
         @foreach($data as $data)
 
-        <form action="/books/update" method="post">
+        <form action="{{ url('/booksApp/update_book',$data->id) }}" method="get">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-6 d-flex justify-content-center">
                     <div class="card" style="width: 22rem">

@@ -35,6 +35,12 @@ class BookController extends Controller
         return redirect('/booksApp/collections');
     }
 
+    public function update_book($id)
+    {
+        $data = Book::find($id);
+        return view('bookUpdate', compact('data'));
+    }
+
     public function collections()
     {
         $data = Book::all();

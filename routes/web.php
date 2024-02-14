@@ -34,5 +34,6 @@ Route::get('/show_employee', [EmployeeController::class, 'show_employee']);
 Route::get('/booksApp', [BookController::class, 'index']);
 Route::get('/booksApp/new', [BookController::class, 'new']);
 Route::get('/booksApp/collections', [BookController::class, 'collections']);
+Route::get('/booksApp/update_book/{id}', [BookController::class, 'update_book']);
 Route::post('/booksApp/add_book', [BookController::class, 'add_book']);
 Route::post('/booksApp/search', [BookController::class, 'search']);
