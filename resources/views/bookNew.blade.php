@@ -18,7 +18,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" href="/booksApp">Home</a>
-                    <a class="nav-link" href="/books">Collections</a>
+                    <a class="nav-link" href="/booksApp/collections">Collections</a>
                     <a class="nav-link active" href="/booksApp/new">New</a>
                 </div>
             </div>
@@ -41,7 +41,18 @@
             <div class="col-6 offset-3">
                 <h3 class="text-center">New Book</h3>
 
-                <form action="/books" method="POST" novalidate class="validated-form">
+                @if($errors)
+
+                @foreach($errors->all() as $errors)
+                <li style="color:red">
+                    {{$errors}}
+                </li>
+                @endforeach
+
+                @endif
+
+                <form action="{{ url('/booksApp/add_book') }}" method="POST" novalidate class="validated-form">
+                    @csrf
                     <div class="mb-3">
                         <label class="form-label" for="title">Title</label>
                         <input class="form-control" type="text" id="title" name="title" placeholder="Enter Title" required autofocus />
@@ -72,19 +83,19 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label" for="price">Rating</label>
+                        <label class="form-label" for="rating">Rating</label>
                         <div class="input-group">
                             <span class="input-group-text" id="rating"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-half" viewBox="0 0 16 16">
                                     <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
                                 </svg></span>
-                            <input id="rating" type="number" class="form-control" placeholder="1 to 10" min="1" max="10" aria-label="rating" aria-describedby="rating-label" name="book[rating]" required />
+                            <input id="rating" type="number" class="form-control" placeholder="1 to 10" min="1" max="10" aria-label="rating" aria-describedby="rating-label" name="rating" required />
                         </div>
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label" for="notes">Notes</label>
-                        <textarea class="form-control" name="book[notes]" id="notes" cols="30" rows="3" required></textarea>
+                        <textarea class="form-control" name="notes" id="notes" cols="30" rows="3" required></textarea>
                         <div class="valid-feedback">Looks good!</div>
                     </div>
 

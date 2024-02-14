@@ -17,8 +17,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" href="/">Home</a>
-                    <a class="nav-link" href="/books">Collections</a>
+                    <a class="nav-link active" href="/booksApp">Home</a>
+                    <a class="nav-link" href="/booksApp/collections">Collections</a>
+                    <a class="nav-link" href="/booksApp/new">New</a>
                 </div>
             </div>
         </div>

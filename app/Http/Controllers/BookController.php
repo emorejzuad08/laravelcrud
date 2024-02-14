@@ -19,6 +19,28 @@ class BookController extends Controller
         return view('bookNew');
     }
 
+    public function add_book(Request $request)
+    {
+        $data = new Book;
+
+        $data->img_url = $request->img_url;
+        $data->title = $request->title;
+        $data->read_date = $request->readDate;
+        $data->rating = $request->rating;
+        $data->notes = $request->notes;
+        $data->author = $request->author_name;
+        $data->first_publish_year = $request->first_publish_year;
+
+        $data->save();
+        return redirect('/booksApp/collections');
+    }
+
+    public function collections()
+    {
+        $data = Book::all();
+        return view('bookCollections', compact('data'));
+    }
+
     public function search(Request $request)
     {
         // Make a GET request to an API
