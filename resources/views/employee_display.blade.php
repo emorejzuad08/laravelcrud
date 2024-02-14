@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setup Employee</title>
+    <title>Display Employee</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -18,12 +18,18 @@
 
 <body>
     <div class="container d-flex justify-content-center">
-        <br><br>
         <a class="btn btn-success" href="{{url('show_employee')}}">Show Employees</a>
-        <br><br>
-        <h1>Add Employee</h1>
+        <br>
+        <h1>List of Employees</h1>
 
-        <form action="{{ url('/add_employee') }}" method="Post" ectype="multipart/form-data">
+        @foreach($data as $data)
+
+        <h1>{{ $data->empid }}</h1>
+
+        @endforeach
+
+
+        <!-- <form action="{{ url('/add_employee') }}" method="Post" ectype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-md-12">
@@ -66,7 +72,7 @@
                     <input class="btn btn-primary" type="submit" value="Add Employee">
                 </div>
             </div>
-        </form>
+        </form> -->
     </div>
 </body>
 

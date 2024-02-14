@@ -25,4 +25,10 @@ class EmployeeController extends Controller
 
         return redirect()->back();
     }
+
+    public function show_employee()
+    {
+        $data = Employee::all();
+        return view('employee_display', compact('data'));
+    }
 }
